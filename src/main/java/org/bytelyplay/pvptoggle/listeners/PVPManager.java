@@ -87,7 +87,6 @@ public class PVPManager {
     @SubscribeEvent
     public static void onTick(ServerTickEvent.Post event) {
         // based off overworld also i'm scared to close it because it might remove the dimension from memory
-        log.debug(String.valueOf(event.getServer().overworld().getGameTime() % 600));
         if (event.getServer().overworld().getGameTime() % 600 == 0) {
             saveAll();
         }
