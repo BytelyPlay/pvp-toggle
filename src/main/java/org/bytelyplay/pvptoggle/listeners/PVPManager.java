@@ -41,7 +41,10 @@ public class PVPManager {
     // ArrayList is used to make it take less space to save.
     private static ArrayList<UUID> allowPVP = new ArrayList<>();
     public static void setPVP(UUID uuid, boolean state) {
-        if (!state) allowPVP.remove(uuid);
+        if (!state) {
+            allowPVP.remove(uuid);
+            return;
+        }
         if (allowPVP.contains(uuid)) return;
         allowPVP.add(uuid);
     }
@@ -83,7 +86,9 @@ public class PVPManager {
     }
     @SubscribeEvent
     public static void onTick(ServerTickEvent.Post event) {
-        if (event.getServer().getNextTickTime() % 600 == 0) {
+        // based off overworld also i'm scared to close it because it might remove the dimension from memory
+        log.debug(String.valueOf(event.getServer().overworld().getGameTime() % 600));
+        if (event.getServer().overworld().getGameTime() % 600 == 0) {
             saveAll();
         }
     }

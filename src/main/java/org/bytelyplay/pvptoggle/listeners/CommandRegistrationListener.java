@@ -27,7 +27,7 @@ public class CommandRegistrationListener {
                         UUID senderUUID = sender.getUUID();
 
                         PVPManager.setPVP(senderUUID,
-                                PVPManager.getPVP(senderUUID));
+                                !PVPManager.getPVP(senderUUID));
                         boolean pvpState = PVPManager.getPVP(senderUUID);
                         if (pvpState) {
                             sender.sendSystemMessage(Messages.ENABLED_PVP);
