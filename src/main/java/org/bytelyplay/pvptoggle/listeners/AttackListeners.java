@@ -24,6 +24,7 @@ public class AttackListeners {
             if (!(PVPManager.getPVP(victim.getUUID()) && PVPManager.getPVP(attacker.getUUID()))) {
                 victim.sendSystemMessage(Messages.ATTACK_DENIED);
                 attacker.sendSystemMessage(Messages.ATTACK_DENIED);
+                event.setCanceled(true);
             }
         }
     }

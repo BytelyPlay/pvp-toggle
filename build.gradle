@@ -116,8 +116,21 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
-    additionalRuntimeClasspath("com.fasterxml.jackson.core:jackson-databind:2.20.0")
+    jarJar(implementation("com.fasterxml.jackson.core:jackson-core:2.20.0") {
+        version {
+            prefer '2.20.0'
+        }
+    })
+    jarJar(implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0") {
+        version {
+            prefer '2.20.0'
+        }
+    })
+    jarJar(implementation("com.fasterxml.jackson.core:jackson-annotations:2.20") {
+        version {
+            prefer '2.20.0'
+        }
+    })
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
