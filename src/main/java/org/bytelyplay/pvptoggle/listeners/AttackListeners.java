@@ -22,8 +22,8 @@ public class AttackListeners {
         if (victimEntity instanceof Player victim &&
                 attackerEntity instanceof Player attacker) {
             if (!(PVPManager.getPVP(victim.getUUID()) && PVPManager.getPVP(attacker.getUUID()))) {
-                victim.sendSystemMessage(Messages.ATTACK_DENIED);
-                attacker.sendSystemMessage(Messages.ATTACK_DENIED);
+                victim.displayClientMessage(Messages.ATTACK_DENIED, false);
+                attacker.displayClientMessage(Messages.ATTACK_DENIED, false);
                 event.setCanceled(true);
             }
         }
