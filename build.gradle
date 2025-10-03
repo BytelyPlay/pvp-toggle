@@ -54,16 +54,6 @@ neoForge {
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
-        data {
-            data()
-
-            // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
-            // gameDirectory = project.file('run-data')
-
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-        }
-
         // applies to all the run configs above
         configureEach {
             // Recommended logging data for a userdev environment
@@ -116,21 +106,6 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    jarJar(implementation("com.fasterxml.jackson.core:jackson-core:2.20.0") {
-        version {
-            prefer '2.20.0'
-        }
-    })
-    jarJar(implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0") {
-        version {
-            prefer '2.20.0'
-        }
-    })
-    jarJar(implementation("com.fasterxml.jackson.core:jackson-annotations:2.20") {
-        version {
-            prefer '2.20.0'
-        }
-    })
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

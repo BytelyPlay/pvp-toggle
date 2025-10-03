@@ -28,9 +28,9 @@ public class CommandRegistrationListener {
                                 !PVPManager.getPVP(senderUUID));
                         boolean pvpState = PVPManager.getPVP(senderUUID);
                         if (pvpState) {
-                            sender.sendSystemMessage(Messages.ENABLED_PVP);
+                            sender.displayClientMessage(Messages.ENABLED_PVP, false);
                         } else {
-                            sender.sendSystemMessage(Messages.DISABLED_PVP);
+                            sender.displayClientMessage(Messages.DISABLED_PVP, false);
                         }
                     } else {
                         source.sendSystemMessage(Messages.ONLY_PLAYERS_CAN_EXECUTE);
